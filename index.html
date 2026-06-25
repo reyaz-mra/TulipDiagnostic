@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>টিউলিপ ডায়াগনস্টিক ও পলিক্লিনিক | Tulip Diagnostic & Polyclinic</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #0A6E6E;
+    --teal-dark: #074F4F;
+    --teal-light: #0D8A8A;
+    --gold: #C9A227;
+    --gold-light: #F0C84A;
+    --bg: #F4FFFE;
+    --bg-section: #E8F6F6;
+    --white: #FFFFFF;
+    --text: #1A2B2B;
+    --text-light: #4A6565;
+    --border: #B2D8D8;
+    --red: #C0392B;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Hind Siliguri', 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--teal-dark);
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  }
+  .nav-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 20px; gap: 12px; flex-wrap: wrap;
+  }
+  .nav-brand {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none; padding: 12px 0;
+  }
+  .nav-brand .tulip-icon {
+    font-size: 28px; line-height: 1;
+  }
+  .nav-brand-text { line-height: 1.2; }
+  .nav-brand-text .bn { color: var(--gold-light); font-size: 13px; font-weight: 600; }
+  .nav-brand-text .en { color: #ccc; font-size: 10px; letter-spacing: 0.5px; }
+
+  .nav-links {
+    display: flex; align-items: center; gap: 4px; flex-wrap: wrap;
+  }
+  .nav-links a {
+    color: #cde8e8; text-decoration: none;
+    font-size: 13px; padding: 8px 12px; border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+  .nav-links a:hover { background: var(--teal-light); color: #fff; }
+
+  .lang-toggle {
+    background: var(--gold);
+    color: var(--teal-dark);
+    border: none; cursor: pointer;
+    font-size: 12px; font-weight: 700;
+    padding: 7px 14px; border-radius: 20px;
+    font-family: inherit; letter-spacing: 0.3px;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .lang-toggle:hover { background: var(--gold-light); }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 50%, #0A8A7A 100%);
+    color: white;
+    padding: 60px 20px 50px;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(201,162,39,0.18) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -40px; left: -40px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(255,255,255,0.07) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(201,162,39,0.25);
+    border: 1px solid var(--gold);
+    color: var(--gold-light);
+    font-size: 11px; font-weight: 600;
+    padding: 4px 14px; border-radius: 20px;
+    letter-spacing: 1px; margin-bottom: 18px;
+    text-transform: uppercase;
+  }
+  .hero-title-bn {
+    font-size: clamp(32px, 7vw, 58px);
+    font-weight: 700; line-height: 1.2;
+    margin-bottom: 6px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  }
+  .hero-title-en {
+    font-size: clamp(14px, 3vw, 20px);
+    font-weight: 400; color: #b0e0e0;
+    letter-spacing: 1px; margin-bottom: 20px;
+  }
+  .hero-tagline {
+    font-size: 15px; color: var(--gold-light);
+    font-weight: 500; margin-bottom: 6px;
+  }
+  .hero-tagline-en { font-size: 13px; color: #a0d4d4; margin-bottom: 24px; }
+  .hero-license {
+    font-size: 12px; color: #8ccfcf;
+    margin-bottom: 28px;
+  }
+  .hero-phones {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+    margin-bottom: 28px;
+  }
+  .hero-phones a {
+    background: rgba(255,255,255,0.12);
+    color: white; text-decoration: none;
+    padding: 10px 20px; border-radius: 30px;
+    font-size: 15px; font-weight: 600;
+    border: 1px solid rgba(255,255,255,0.25);
+    transition: background 0.2s;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .hero-phones a:hover { background: rgba(255,255,255,0.25); }
+  .hero-cta {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--teal-dark);
+    text-decoration: none;
+    padding: 13px 32px; border-radius: 30px;
+    font-weight: 700; font-size: 15px;
+    box-shadow: 0 4px 16px rgba(201,162,39,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,162,39,0.5); }
+
+  /* ── NOTICE STRIP ── */
+  .notice-strip {
+    background: var(--gold);
+    color: var(--teal-dark);
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 13px; font-weight: 600;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 60px 20px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-alt { background: var(--bg-section); }
+
+  .section-header { text-align: center; margin-bottom: 40px; }
+  .section-eyebrow {
+    display: inline-block;
+    color: var(--teal); font-size: 12px;
+    font-weight: 600; letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  .section-title-bn {
+    font-size: clamp(22px, 4vw, 32px);
+    font-weight: 700; color: var(--teal-dark);
+    line-height: 1.3;
+  }
+  .section-title-en {
+    font-size: clamp(14px, 2.5vw, 18px);
+    color: var(--text-light); font-weight: 400;
+    margin-top: 4px;
+  }
+  .section-divider {
+    width: 60px; height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--teal));
+    margin: 14px auto 0; border-radius: 2px;
+  }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  .about-card {
+    background: white;
+    border-radius: 14px;
+    padding: 28px 22px;
+    text-align: center;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 12px rgba(10,110,110,0.07);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .about-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(10,110,110,0.13); }
+  .about-icon { font-size: 36px; margin-bottom: 12px; }
+  .about-card h3 { font-size: 16px; font-weight: 700; color: var(--teal-dark); margin-bottom: 4px; }
+  .about-card h3 span { display: block; font-size: 12px; color: var(--text-light); font-weight: 400; }
+  .about-card p { font-size: 13px; color: var(--text-light); margin-top: 8px; }
+
+  /* ── DOCTORS ── */
+  .doctors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 28px;
+  }
+  .doctor-card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 18px rgba(10,110,110,0.09);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .doctor-card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(10,110,110,0.15); }
+  .doctor-card-header {
+    background: linear-gradient(135deg, var(--teal-dark), var(--teal));
+    padding: 28px 24px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .doctor-avatar {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px; border: 3px solid var(--gold);
+    flex-shrink: 0;
+  }
+  .doctor-card-header h3 { color: white; font-size: 20px; font-weight: 700; line-height: 1.2; }
+  .doctor-card-header h3 span { display: block; font-size: 12px; font-weight: 400; color: #b0e0e0; margin-top: 2px; }
+  .doctor-body { padding: 22px 24px; }
+  .doctor-qual {
+    font-size: 13px; color: var(--teal);
+    font-weight: 600; margin-bottom: 4px;
+  }
+  .doctor-reg {
+    font-size: 11px; color: var(--text-light);
+    margin-bottom: 14px;
+  }
+  .doctor-specialties {
+    background: var(--bg-section);
+    border-radius: 10px; padding: 14px 16px;
+    margin-bottom: 14px;
+  }
+  .doctor-specialties h4 {
+    font-size: 12px; font-weight: 600;
+    color: var(--teal-dark); margin-bottom: 8px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .specialty-tag {
+    display: inline-block;
+    background: white;
+    border: 1px solid var(--border);
+    color: var(--teal-dark);
+    font-size: 11px; padding: 3px 9px;
+    border-radius: 20px; margin: 3px 3px 3px 0;
+    font-weight: 500;
+  }
+  .doctor-chamber {
+    display: flex; align-items: flex-start; gap: 8px;
+    background: #FFF8E7;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+  }
+  .doctor-chamber .icon { font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+  .doctor-chamber p { font-size: 13px; color: var(--text); font-weight: 500; }
+  .doctor-chamber p span { display: block; font-size: 11px; color: var(--text-light); font-weight: 400; }
+
+  /* ── SERVICES ── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+  }
+  .service-card {
+    background: white;
+    border-radius: 14px; padding: 22px 20px;
+    border: 1px solid var(--border);
+    display: flex; gap: 14px; align-items: flex-start;
+    box-shadow: 0 2px 10px rgba(10,110,110,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .service-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(10,110,110,0.12); }
+  .service-icon {
+    font-size: 28px; flex-shrink: 0;
+    width: 50px; height: 50px;
+    background: var(--bg-section);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .service-text h4 { font-size: 15px; font-weight: 700; color: var(--teal-dark); margin-bottom: 3px; }
+  .service-text h4 span { display: block; font-size: 11px; font-weight: 400; color: var(--text-light); }
+  .service-text p { font-size: 12px; color: var(--text-light); margin-top: 4px; }
+
+  /* ── APPOINTMENT ── */
+  .appointment-wrap {
+    background: white;
+    border-radius: 18px; overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 24px rgba(10,110,110,0.1);
+  }
+  .appt-top {
+    background: linear-gradient(135deg, var(--teal-dark), var(--teal-light));
+    color: white; padding: 28px 32px;
+    display: flex; flex-wrap: wrap; gap: 16px;
+    align-items: center; justify-content: space-between;
+  }
+  .appt-top h3 { font-size: 22px; font-weight: 700; }
+  .appt-top h3 span { display: block; font-size: 14px; font-weight: 400; color: #b0e0e0; }
+  .appt-top-note {
+    background: rgba(255,255,255,0.12);
+    border-radius: 10px; padding: 12px 16px;
+    font-size: 13px; color: #d0f0f0;
+    max-width: 320px;
+  }
+
+  .appt-form { padding: 32px; }
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label {
+    font-size: 13px; font-weight: 600;
+    color: var(--teal-dark);
+  }
+  .form-group label span { font-size: 11px; color: var(--text-light); font-weight: 400; margin-left: 4px; }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    border: 1.5px solid var(--border);
+    border-radius: 9px; padding: 11px 14px;
+    font-size: 14px; font-family: inherit;
+    color: var(--text); background: var(--bg);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(10,110,110,0.1);
+  }
+  .form-group textarea { resize: vertical; min-height: 90px; }
+  .form-full { grid-column: 1 / -1; }
+  .form-submit {
+    background: linear-gradient(135deg, var(--teal-dark), var(--teal));
+    color: white; border: none; cursor: pointer;
+    padding: 14px 40px; border-radius: 30px;
+    font-size: 16px; font-weight: 700;
+    font-family: inherit; margin-top: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 14px rgba(10,110,110,0.3);
+  }
+  .form-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(10,110,110,0.4); }
+  .form-note {
+    font-size: 12px; color: var(--text-light);
+    margin-top: 12px; padding: 12px 16px;
+    background: #FFF8E7; border-radius: 8px;
+    border-left: 3px solid var(--gold);
+  }
+  .success-msg {
+    display: none;
+    background: #E8F8F0; border: 1px solid #6DCEA4;
+    border-radius: 10px; padding: 20px 24px;
+    text-align: center; margin-top: 16px;
+    color: #1A6B40; font-weight: 600;
+  }
+
+  /* ── CONTACT ── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  @media (max-width: 680px) { .contact-grid { grid-template-columns: 1fr; } }
+
+  .contact-info { display: flex; flex-direction: column; gap: 16px; }
+  .contact-item {
+    background: white; border-radius: 12px; padding: 18px 20px;
+    display: flex; gap: 14px; align-items: flex-start;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 8px rgba(10,110,110,0.06);
+  }
+  .contact-item .ci-icon {
+    font-size: 22px; width: 44px; height: 44px;
+    background: var(--bg-section); border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-item h4 { font-size: 13px; font-weight: 700; color: var(--teal-dark); margin-bottom: 4px; }
+  .contact-item p, .contact-item a {
+    font-size: 13px; color: var(--text-light);
+    text-decoration: none; line-height: 1.5;
+    display: block;
+  }
+  .contact-item a:hover { color: var(--teal); }
+  .contact-item a.phone {
+    font-size: 15px; font-weight: 600; color: var(--teal-dark);
+  }
+
+  .map-wrap {
+    border-radius: 14px; overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 18px rgba(10,110,110,0.1);
+    min-height: 320px;
+  }
+  .map-wrap iframe { width: 100%; height: 100%; min-height: 320px; border: 0; display: block; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--teal-dark);
+    color: #c0e0e0; padding: 40px 20px 20px;
+    text-align: center;
+  }
+  .footer-inner { max-width: 800px; margin: 0 auto; }
+  .footer-logo { font-size: 20px; font-weight: 700; color: var(--gold-light); margin-bottom: 8px; }
+  .footer-tagline { font-size: 13px; color: #8ABCBC; margin-bottom: 20px; }
+  .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 20px; }
+  .footer-links a {
+    color: #a0d0d0; text-decoration: none;
+    font-size: 13px; padding: 4px 12px;
+    border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);
+    transition: background 0.2s;
+  }
+  .footer-links a:hover { background: rgba(255,255,255,0.1); }
+  .footer-copy { font-size: 11px; color: #5A8888; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px; margin-top: 8px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    .nav-inner { padding: 8px 14px; }
+    .nav-links a { font-size: 12px; padding: 6px 8px; }
+    section { padding: 44px 14px; }
+    .appt-form { padding: 20px 16px; }
+    .appt-top { padding: 20px 16px; }
+    .doctor-card-header { padding: 20px 16px; }
+    .doctor-body { padding: 16px; }
+  }
+
+  /* ── LANG SWITCH ── */
+  [data-lang="en"] { display: none; }
+  body.en-mode [data-lang="bn"] { display: none; }
+  body.en-mode [data-lang="en"] { display: inline; }
+  /* For block elements */
+  [data-block-lang="en"] { display: none; }
+  body.en-mode [data-block-lang="bn"] { display: none; }
+  body.en-mode [data-block-lang="en"] { display: block; }
+
+  .tulip-logo-svg { width: 36px; height: 36px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#home" class="nav-brand">
+      <svg class="tulip-logo-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="18" cy="18" r="18" fill="rgba(255,255,255,0.08)"/>
+        <path d="M18 28 C18 28 10 22 10 15 C10 11 13 8 18 8 C23 8 26 11 26 15 C26 22 18 28 18 28Z" fill="#C9A227" opacity="0.85"/>
+        <path d="M18 28 C18 28 13 18 13 14 C13 11 15 9 18 9 C21 9 23 11 23 14 C23 18 18 28 18 28Z" fill="#F0C84A"/>
+        <rect x="17" y="27" width="2" height="4" rx="1" fill="#6DBF9A"/>
+      </svg>
+      <div class="nav-brand-text">
+        <div class="bn">টিউলিপ ডায়াগনস্টিক</div>
+        <div class="en">Tulip Diagnostic & Polyclinic</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#home"><span data-lang="bn">হোম</span><span data-lang="en">Home</span></a>
+      <a href="#about"><span data-lang="bn">পরিচয়</span><span data-lang="en">About</span></a>
+      <a href="#doctors"><span data-lang="bn">ডাক্তার</span><span data-lang="en">Doctors</span></a>
+      <a href="#services"><span data-lang="bn">সেবা</span><span data-lang="en">Services</span></a>
+      <a href="#appointment"><span data-lang="bn">অ্যাপয়েন্টমেন্ট</span><span data-lang="en">Appointment</span></a>
+      <a href="#contact"><span data-lang="bn">যোগাযোগ</span><span data-lang="en">Contact</span></a>
+    </div>
+    <button class="lang-toggle" onclick="toggleLang()">
+      <span data-lang="bn">🌐 English</span>
+      <span data-lang="en">🌐 বাংলা</span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" style="padding:0;">
+  <div class="hero">
+    <div class="hero-badge">
+      <span data-lang="bn">পশ্চিমবঙ্গ সরকার অনুমোদিত</span>
+      <span data-lang="en">Govt. of West Bengal Registered</span>
+    </div>
+    <div class="hero-title-bn">
+      <span data-lang="bn">🌷 টিউলিপ ডায়াগনস্টিক</span>
+      <span data-lang="en">🌷 Tulip Diagnostic</span>
+    </div>
+    <div class="hero-title-en">
+      <span data-lang="bn">এন্ড পলিক্লিনিক</span>
+      <span data-lang="en">& Polyclinic</span>
+    </div>
+    <div class="hero-tagline">
+      <span data-lang="bn">সুস্বাস্থ্যের শুরু এখানে</span>
+      <span data-lang="en">Good Health Starts Here</span>
+    </div>
+    <div class="hero-tagline-en">
+      <span data-lang="bn">লাইসেন্স নং: 34536003</span>
+      <span data-lang="en">License No: 34536003</span>
+    </div>
+    <div class="hero-license">
+      <span data-lang="bn">📍 রেয়াপাড়া গ্রামীণ হসপিটালের পশ্চিম পার্শে, রেয়াপাড়া, নন্দীগ্রাম, পূর্ব মেদিনীপুর – ৭২১৬৫০</span>
+      <span data-lang="en">📍 West of Reapara Rural Hospital, Reapara, Nandigram, East Midnapore – 721650</span>
+    </div>
+    <div class="hero-phones">
+      <a href="tel:9775877356">📞 9775877356</a>
+      <a href="tel:8389825114">📞 8389825114</a>
+      <a href="tel:9732502430">📞 9732502430</a>
+    </div>
+    <a href="#appointment" class="hero-cta">
+      <span data-lang="bn">📅 অ্যাপয়েন্টমেন্ট বুক করুন</span>
+      <span data-lang="en">📅 Book an Appointment</span>
+    </a>
+  </div>
+</section>
+
+<!-- NOTICE -->
+<div class="notice-strip">
+  <span data-lang="bn">⏰ ২৪×৭ প্যাথলজি ও ইসিজি পরিষেবা উপলব্ধ | একই দিনে রিপোর্ট প্রদান করা হয়</span>
+  <span data-lang="en">⏰ 24×7 Pathology & ECG services available | Same-day reports provided</span>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">
+        <span data-lang="bn">আমাদের সম্পর্কে</span>
+        <span data-lang="en">About Us</span>
+      </div>
+      <h2 class="section-title-bn">
+        <span data-lang="bn">কেন টিউলিপ ডায়াগনস্টিক বেছে নেবেন?</span>
+        <span data-lang="en">Why Choose Tulip Diagnostic?</span>
+      </h2>
+      <div class="section-title-en">
+        <span data-lang="bn">নন্দীগ্রামের বিশ্বস্ত স্বাস্থ্যসেবা কেন্দ্র</span>
+        <span data-lang="en">Nandigram's Trusted Healthcare Centre</span>
+      </div>
+      <div class="section-divider"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="about-icon">🏛️</div>
+        <h3>
+          <span data-lang="bn">সরকারি অনুমোদিত</span>
+          <span data-lang="en">Government Registered</span>
+          <span>
+            <span data-lang="bn">লাইসেন্স নং ৩৪৫৩৬০০৩</span>
+            <span data-lang="en">License No. 34536003</span>
+          </span>
+        </h3>
+        <p>
+          <span data-lang="bn">পশ্চিমবঙ্গ সরকার কর্তৃক অনুমোদিত ও নিবন্ধিত ডায়াগনস্টিক সেন্টার</span>
+          <span data-lang="en">Fully approved and registered diagnostic centre by the Government of West Bengal</span>
+        </p>
+      </div>
+      <div class="about-card">
+        <div class="about-icon">⚡</div>
+        <h3>
+          <span data-lang="bn">একই দিনে রিপোর্ট</span>
+          <span data-lang="en">Same-Day Reports</span>
+          <span>
+            <span data-lang="bn">দ্রুত ও নির্ভুল ফলাফল</span>
+            <span data-lang="en">Fast & Accurate Results</span>
+          </span>
+        </h3>
+        <p>
+          <span data-lang="bn">আমাদের দক্ষ MLT টিম একই দিনে কার্যকর রিপোর্ট প্রদান করেন</span>
+          <span data-lang="en">Our dedicated MLT team provides effective reports on the same day</span>
+        </p>
+      </div>
+      <div class="about-card">
+        <div class="about-icon">👨‍⚕️</div>
+        <h3>
+          <span data-lang="bn">বিশেষজ্ঞ ডাক্তার</span>
+          <span data-lang="en">Expert Doctors</span>
+          <span>
+            <span data-lang="bn">WBMC নিবন্ধিত চিকিৎসক</span>
+            <span data-lang="en">WBMC Registered Physicians</span>
+          </span>
+        </h3>
+        <p>
+          <span data-lang="bn">অভিজ্ঞ বিশেষজ্ঞ ডাক্তারবাবুগণ নিয়মিত চেম্বার করেন</span>
+          <span data-lang="en">Experienced specialist doctors hold regular consultations</span>
+        </p>
+      </div>
+      <div class="about-card">
+        <div class="about-icon">🕐</div>
+        <h3>
+          <span data-lang="bn">২৪×৭ সেবা</span>
+          <span data-lang="en">24×7 Service</span>
+          <span>
+            <span data-lang="bn">সর্বদা উপলব্ধ</span>
+            <span data-lang="en">Always Available</span>
+          </span>
+        </h3>
+        <p>
+          <span data-lang="bn">সারাদিন সারারাত প্যাথলজি ও ইসিজি পরিষেবা পাওয়া যায়</span>
+          <span data-lang="en">Pathology and ECG services available round the clock</span>
+        </p>
+      </div>
+      <div class="about-card">
+        <div class="about-icon">🔬</div>
+        <h3>
+          <span data-lang="bn">অ্যাডভান্স প্যাথলজি</span>
+          <span data-lang="en">Advanced Pathology</span>
+          <span>
+            <span data-lang="bn">আধুনিক যন্ত্রপাতি</span>
+            <span data-lang="en">Modern Equipment</span>
+          </span>
+        </h3>
+        <p>
+          <span data-lang="bn">আধুনিক যন্ত্রপাতি ও প্রযুক্তি ব্যবহার করে পরীক্ষা করা হয়</span>
+          <span data-lang="en">Tests conducted using modern equipment and technology</span>
+        </p>
+      </div>
+      <div class="about-card">
+        <div class="about-icon">📋</div>
+        <h3>
+          <span data-lang="bn">বিশ্বস্ত রিপোর্টিং</span>
+          <span data-lang="en">Trusted Reporting</span>
+          <span>
+            <span data-lang="bn">শীর্ষ ল্যাব সহযোগিতা</span>
+            <span data-lang="en">Top Lab Collaboration</span>
+          </span>
+        </h3>
+        <p>
+          <span data-lang="bn">রায় এন্ড ত্রিবেদী, লাল প্যাথ, সেরাম মেডিসিটি সহযোগিতায় রিপোর্ট</span>
+          <span data-lang="en">Reports in collaboration with Ray & Trivedi, Lal Path, Serum Medicity</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCTORS -->
+<section id="doctors" class="section-alt">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">
+        <span data-lang="bn">আমাদের চিকিৎসক</span>
+        <span data-lang="en">Our Doctors</span>
+      </div>
+      <h2 class="section-title-bn">
+        <span data-lang="bn">বিশেষজ্ঞ ডাক্তারবৃন্দ</span>
+        <span data-lang="en">Specialist Doctors</span>
+      </h2>
+      <div class="section-title-en">
+        <span data-lang="bn">অভিজ্ঞ ও নিবন্ধিত চিকিৎসক দল</span>
+        <span data-lang="en">Experienced and Registered Medical Team</span>
+      </div>
+      <div class="section-divider"></div>
+    </div>
+    <div class="doctors-grid">
+      <!-- Doctor 1 -->
+      <div class="doctor-card">
+        <div class="doctor-card-header">
+          <div class="doctor-avatar">👨‍⚕️</div>
+          <h3>
+            <span data-lang="bn">ডাঃ সুবীর কুমার পাল</span>
+            <span data-lang="en">Dr. Subir Kumar Pal</span>
+            <span>
+              <span data-lang="bn">সাধারণ ও বুকের রোগ বিশেষজ্ঞ</span>
+              <span data-lang="en">General & Chest Medicine Specialist</span>
+            </span>
+          </h3>
+        </div>
+        <div class="doctor-body">
+          <div class="doctor-qual">MBBS, MD (Respiratory Medicine)</div>
+          <div class="doctor-reg">
+            <span data-lang="bn">নিবন্ধন নং: ৫৯৭৮১ (WBMC) | Consultant Physician & Chest Specialist</span>
+            <span data-lang="en">Reg. No: 59781 (WBMC) | Consultant Physician & Chest Specialist</span>
+          </div>
+          <div class="doctor-specialties">
+            <h4>
+              <span data-lang="bn">বিশেষজ্ঞ বিষয়সমূহ</span>
+              <span data-lang="en">Specialties</span>
+            </h4>
+            <span class="specialty-tag"><span data-lang="bn">সুগার</span><span data-lang="en">Diabetes</span></span>
+            <span class="specialty-tag"><span data-lang="bn">হার্ট</span><span data-lang="en">Heart</span></span>
+            <span class="specialty-tag"><span data-lang="bn">থাইরয়েড</span><span data-lang="en">Thyroid</span></span>
+            <span class="specialty-tag"><span data-lang="bn">কিডনি</span><span data-lang="en">Kidney</span></span>
+            <span class="specialty-tag"><span data-lang="bn">লিভার</span><span data-lang="en">Liver</span></span>
+            <span class="specialty-tag"><span data-lang="bn">নার্ভ</span><span data-lang="en">Nerve</span></span>
+            <span class="specialty-tag"><span data-lang="bn">বাত</span><span data-lang="en">Arthritis</span></span>
+            <span class="specialty-tag"><span data-lang="bn">শ্বাসকষ্ট</span><span data-lang="en">Breathing</span></span>
+            <span class="specialty-tag"><span data-lang="bn">হাঁপানি</span><span data-lang="en">Asthma</span></span>
+            <span class="specialty-tag"><span data-lang="bn">জটিল রোগ</span><span data-lang="en">Complex Diseases</span></span>
+          </div>
+          <div class="doctor-chamber">
+            <span class="icon">🗓️</span>
+            <p>
+              <span data-lang="bn">চেম্বার: প্রতি রবিবার বিকাল ৪-৫ টা থেকে</span>
+              <span data-lang="en">Chamber: Every Sunday from 4–5 PM onwards</span>
+              <span>
+                <span data-lang="bn">নন্দীগ্রাম হাসপাতালের সুনামধন্য চেস্ট বিশেষজ্ঞ</span>
+                <span data-lang="en">Renowned chest specialist at Nandigram Hospital</span>
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Doctor 2 -->
+      <div class="doctor-card">
+        <div class="doctor-card-header">
+          <div class="doctor-avatar">👩‍⚕️</div>
+          <h3>
+            <span data-lang="bn">ডাঃ সৈকত ত্রিপাঠী</span>
+            <span data-lang="en">Dr. Saikat Tripathi</span>
+            <span>
+              <span data-lang="bn">প্রসূতি, স্ত্রীরোগ ও বন্ধ্যাত্ব বিশেষজ্ঞ</span>
+              <span data-lang="en">Obstetrics, Gynaecology & Infertility Specialist</span>
+            </span>
+          </h3>
+        </div>
+        <div class="doctor-body">
+          <div class="doctor-qual">MBBS, MD/MS (O&G)</div>
+          <div class="doctor-reg">
+            <span data-lang="bn">নিবন্ধন নং: ৭২৭২২ (WBMC) | Consultant Obstetrician & Gynaecologist & Laproscopic Surgeon</span>
+            <span data-lang="en">Reg. No: 72722 (WBMC) | Consultant Obstetrician, Gynaecologist & Laproscopic Surgeon</span>
+          </div>
+          <div class="doctor-specialties">
+            <h4>
+              <span data-lang="bn">বিশেষজ্ঞ বিষয়সমূহ</span>
+              <span data-lang="en">Specialties</span>
+            </h4>
+            <span class="specialty-tag"><span data-lang="bn">প্রসূতি সেবা</span><span data-lang="en">Obstetrics</span></span>
+            <span class="specialty-tag"><span data-lang="bn">স্ত্রীরোগ</span><span data-lang="en">Gynaecology</span></span>
+            <span class="specialty-tag"><span data-lang="bn">বন্ধ্যাত্ব</span><span data-lang="en">Infertility</span></span>
+            <span class="specialty-tag"><span data-lang="bn">ল্যাপ্রোস্কোপি</span><span data-lang="en">Laproscopy</span></span>
+            <span class="specialty-tag"><span data-lang="bn">জটিল স্ত্রীরোগ</span><span data-lang="en">Complex Gyn. Issues</span></span>
+            <span class="specialty-tag"><span data-lang="bn">পুরোনো রোগ</span><span data-lang="en">Chronic Conditions</span></span>
+          </div>
+          <div class="doctor-chamber">
+            <span class="icon">🗓️</span>
+            <p>
+              <span data-lang="bn">চেম্বার: প্রতি রবিবার সকাল ৮ টা থেকে</span>
+              <span data-lang="en">Chamber: Every Sunday from 8 AM onwards</span>
+              <span>
+                <span data-lang="bn">যেকোনো পুরোনো ও জটিল স্ত্রীরোগ ও বন্ধ্যাত্ব রোগের চিকিৎসা</span>
+                <span data-lang="en">Treatment for any chronic and complex gynaecological and infertility conditions</span>
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">
+        <span data-lang="bn">আমাদের পরিষেবা</span>
+        <span data-lang="en">Our Services</span>
+      </div>
+      <h2 class="section-title-bn">
+        <span data-lang="bn">সমস্ত স্বাস্থ্যসেবা এক জায়গায়</span>
+        <span data-lang="en">All Health Services Under One Roof</span>
+      </h2>
+      <div class="section-title-en">
+        <span data-lang="bn">আধুনিক প্রযুক্তি ও বিশেষজ্ঞ দলের মাধ্যমে সর্বোত্তম সেবা</span>
+        <span data-lang="en">Best care through modern technology and expert team</span>
+      </div>
+      <div class="section-divider"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">❤️</div>
+        <div class="service-text">
+          <h4>
+            <span data-lang="bn">ইসিজি / ইইজি / এনসিভি</span>
+            <span data-lang="en">ECG / EEG / NCV</span>
+            <span>
+              <span data-lang="bn">Cardiac & Neuro Tests</span>
+              <span data-lang="en">Cardiac & Neuro Tests</span>
+            </span>
+          </h4>
+          <p>
+            <span data-lang="bn">হৃদযন্ত্র ও নার্ভ সিস্টেমের পরীক্ষা</span>
+            <span data-lang="en">Heart and nervous system examination</span>
+          </p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔬</div>
+        <div class="service-text">
+          <h4>
+            <span data-lang="bn">রক্ত পরীক্ষা</span>
+            <span data-lang="en">Blood Tests</span>
+            <span>
+              <span data-lang="bn">CBC, Lipid Profile & More</span>
+              <span data-lang="en">CBC, Lipid Profile & More</span>
+            </span>
+          </h4>
+          <p>
+            <span data-lang="bn">সম্পূর্ণ রক্ত পরীক্ষা, লিপিড প্রোফাইল, গ্রুপিং ইত্যাদি</span>
+            <span data-lang="en">Complete blood count, lipid profile, grouping and more</span>
+          </p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🧬</div>
+        <div class="service-text">
+          <h4>
+            <span data-lang="bn">হরমোন পরীক্ষা</span>
+            <span data-lang="en">Hormone Tests</span>
+            <span>
+              <span data-lang="bn">Thyroid, HbA1c & More</span>
+              <span data-lang="en">Thyroid, HbA1c & More</span>
+            </span>
+          </h4>
+          <p>
+            <span data-lang="bn">থাইরয়েড, হরমোন, HBA1C পরীক্ষা</span>
+            <span data-lang="en">Thyroid, hormone, HbA1c testing</span>
+          </p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💧</div>
+        <div class="service-text">
+          <h4>
+            <span data-lang="bn">মূত্র ও মল পরীক্ষা</span>
+            <span data-lang="en">Urine & Stool Tests</span>
+            <span>
+              <span data-lang="bn">Urine Culture & Routine</span>
+              <span data-lang="en">Urine Culture & Routine</span>
+            </span>
+          </h4>
+          <p>
+            <span data-lang="bn">ইউরিন কালচার, রুটিন পরীক্ষা</span>
+            <span data-lang="en">Urine culture, routine examination</span>
+          </p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🩺</div>
+        <div class="service-text">
+          <h4>
+            <span data-lang="bn">কিডনি ফাংশন টেস্ট</span>
+            <span data-lang="en">Kidney Function Test</span>
+            <span>
+              <span data-lang="bn">Renal Profile</span>
+              <span data-lang="en">Renal Profile</span>
+            </span>
+          </h4>
+          <p>
+            <span data-lang="bn">কিডনির কার্যকারিতা পরীক্ষা</span>
+            <span data-lang="en">Complete kidney function assessment</span>
+          </p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🧪</div>
+        <div class="service-text">
+          <h4>
+            <span data-lang="bn">HIV ও এলার্জি পরীক্ষা</span>
+            <span data-lang="en">HIV & Allergy Tests</span>
+            <span>
+              <span data-lang="bn">Confidential Testing</span>
+              <span data-lang="en">Confidential Testing</span>
+            </span>
+          </h4>
+          <p>
+            <span data-lang="bn">গোপনীয়তার সাথে HIV ও এলার্জি পরীক্ষা</span>
+            <span data-lang="en">HIV and allergy tests with full confidentiality</span>
+          </p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🩸</div>
+        <div class="service-text">
+          <h4>
+            <span data-lang="bn">থ্যালাসেমিয়া পরীক্ষা</span>
+            <span data-lang="en">Thalassemia Screening</span>
+            <span>
+              <span data-lang="bn">Haemoglobin Electrophoresis</span>
+              <span data-lang="en">Haemoglobin Electrophoresis</span>
+            </span>
+          </h4>
+          <p>
+            <span data-lang="bn">থ্যালাসেমিয়া স্ক্রিনিং ও পরীক্ষা</span>
+            <span data-lang="en">Thalassemia screening and testing</span>
+          </p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏥</div>
+        <div class="service-text">
+          <h4>
+            <span data-lang="bn">হোলবডি চেকআপ</span>
+            <span data-lang="en">Whole Body Checkup</span>
+            <span>
+              <span data-lang="bn">Complete Health Package</span>
+              <span data-lang="en">Complete Health Package</span>
+            </span>
+          </h4>
+          <p>
+            <span data-lang="bn">সম্পূর্ণ শরীর পরীক্ষার প্যাকেজ</span>
+            <span data-lang="en">Full body health examination package</span>
+          </p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🧫</div>
+        <div class="service-text">
+          <h4>
+            <span data-lang="bn">অ্যাডভান্স প্যাথলজি</span>
+            <span data-lang="en">Advanced Pathology</span>
+            <span>
+              <span data-lang="bn">Specialised Lab Tests</span>
+              <span data-lang="en">Specialised Lab Tests</span>
+            </span>
+          </h4>
+          <p>
+            <span data-lang="bn">বিশেষায়িত প্যাথলজি পরীক্ষা</span>
+            <span data-lang="en">Specialised pathology examinations</span>
+          </p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">👶</div>
+        <div class="service-text">
+          <h4>
+            <span data-lang="bn">স্পেশালিস্ট ডাক্তার চেম্বার</span>
+            <span data-lang="en">Specialist Doctor Chamber</span>
+            <span>
+              <span data-lang="bn">Weekly Appointments</span>
+              <span data-lang="en">Weekly Appointments</span>
+            </span>
+          </h4>
+          <p>
+            <span data-lang="bn">প্রতি সপ্তাহে বিশেষজ্ঞ ডাক্তারের চেম্বার</span>
+            <span data-lang="en">Specialist doctor consultations every week</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPOINTMENT -->
+<section id="appointment" class="section-alt">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">
+        <span data-lang="bn">অ্যাপয়েন্টমেন্ট</span>
+        <span data-lang="en">Appointment</span>
+      </div>
+      <h2 class="section-title-bn">
+        <span data-lang="bn">ডাক্তারের সাথে অ্যাপয়েন্টমেন্ট বুক করুন</span>
+        <span data-lang="en">Book an Appointment with a Doctor</span>
+      </h2>
+      <div class="section-title-en">
+        <span data-lang="bn">নিচের ফর্মটি পূরণ করুন, আমরা আপনার সাথে যোগাযোগ করব</span>
+        <span data-lang="en">Fill the form below, we will contact you to confirm</span>
+      </div>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="appointment-wrap">
+      <div class="appt-top">
+        <h3>
+          <span data-lang="bn">📅 অ্যাপয়েন্টমেন্ট ফর্ম</span>
+          <span data-lang="en">📅 Appointment Form</span>
+          <span>
+            <span data-lang="bn">আমরা শীঘ্রই কল করব</span>
+            <span data-lang="en">We'll call you shortly</span>
+          </span>
+        </h3>
+        <div class="appt-top-note">
+          <span data-lang="bn">⏰ চেম্বার সময়: ডাঃ ত্রিপাঠী — প্রতি রবি সকাল ৮টা | ডাঃ পাল — প্রতি রবি বিকাল ৪টা</span>
+          <span data-lang="en">⏰ Chamber: Dr. Tripathi — Every Sun 8 AM | Dr. Pal — Every Sun 4–5 PM</span>
+        </div>
+      </div>
+
+      <div class="appt-form">
+        <form id="apptForm" onsubmit="submitForm(event)">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>
+                <span data-lang="bn">রোগীর নাম <span>Patient Name</span></span>
+                <span data-lang="en">Patient Name <span>রোগীর নাম</span></span>
+              </label>
+              <input type="text" name="name" placeholder="আপনার পুরো নাম / Full name" required>
+            </div>
+            <div class="form-group">
+              <label>
+                <span data-lang="bn">বয়স <span>Age</span></span>
+                <span data-lang="en">Age <span>বয়স</span></span>
+              </label>
+              <input type="number" name="age" placeholder="বয়স / Age" min="1" max="120" required>
+            </div>
+            <div class="form-group">
+              <label>
+                <span data-lang="bn">মোবাইল নম্বর <span>Mobile Number</span></span>
+                <span data-lang="en">Mobile Number <span>মোবাইল নম্বর</span></span>
+              </label>
+              <input type="tel" name="phone" placeholder="01XXXXXXXXX" required>
+            </div>
+            <div class="form-group">
+              <label>
+                <span data-lang="bn">পছন্দের তারিখ <span>Preferred Date</span></span>
+                <span data-lang="en">Preferred Date <span>পছন্দের তারিখ</span></span>
+              </label>
+              <input type="date" name="date" required>
+            </div>
+            <div class="form-group">
+              <label>
+                <span data-lang="bn">ডাক্তার বেছে নিন <span>Select Doctor</span></span>
+                <span data-lang="en">Select Doctor <span>ডাক্তার বেছে নিন</span></span>
+              </label>
+              <select name="doctor" required>
+                <option value="">-- ডাক্তার / Doctor --</option>
+                <option value="dr_subir">ডাঃ সুবীর কুমার পাল — MBBS, MD (Respiratory Medicine)</option>
+                <option value="dr_saikat">ডাঃ সৈকত ত্রিপাঠী — MBBS, MD/MS (O&G)</option>
+                <option value="pathology">প্যাথলজি / Pathology Test Only</option>
+                <option value="ecg">ইসিজি / ECG Only</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>
+                <span data-lang="bn">পরিষেবার ধরন <span>Service Type</span></span>
+                <span data-lang="en">Service Type <span>পরিষেবার ধরন</span></span>
+              </label>
+              <select name="service">
+                <option value="">-- পরিষেবা / Service --</option>
+                <option value="consultation">ডাক্তার পরামর্শ / Doctor Consultation</option>
+                <option value="blood">রক্ত পরীক্ষা / Blood Test</option>
+                <option value="urine">মূত্র পরীক্ষা / Urine Test</option>
+                <option value="ecg">ইসিজি / ECG</option>
+                <option value="eeg">ইইজি / EEG</option>
+                <option value="lipid">লিপিড প্রোফাইল / Lipid Profile</option>
+                <option value="hba1c">HbA1c টেস্ট / HbA1c Test</option>
+                <option value="thyroid">থাইরয়েড পরীক্ষা / Thyroid Test</option>
+                <option value="kidney">কিডনি ফাংশন / Kidney Function</option>
+                <option value="fullbody">হোলবডি চেকআপ / Full Body Checkup</option>
+                <option value="other">অন্যান্য / Other</option>
+              </select>
+            </div>
+            <div class="form-group form-full">
+              <label>
+                <span data-lang="bn">সমস্যার বিবরণ <span>Problem Description (Optional)</span></span>
+                <span data-lang="en">Problem Description <span>সমস্যার বিবরণ (ঐচ্ছিক)</span></span>
+              </label>
+              <textarea name="problem" placeholder="আপনার সমস্যা বা পরীক্ষার কারণ সংক্ষেপে লিখুন / Briefly describe your problem or reason for test..."></textarea>
+            </div>
+          </div>
+          <button type="submit" class="form-submit">
+            <span data-lang="bn">📤 অ্যাপয়েন্টমেন্ট পাঠান</span>
+            <span data-lang="en">📤 Submit Appointment</span>
+          </button>
+          <div class="form-note">
+            <span data-lang="bn">⚠️ ফর্ম পাঠানোর পর আমরা ২৪ ঘণ্টার মধ্যে ফোনে যোগাযোগ করব। জরুরি প্রয়োজনে সরাসরি কল করুন: <strong>8389825114</strong></span>
+            <span data-lang="en">⚠️ After submitting, we will call you within 24 hours. For urgent needs, call directly: <strong>8389825114</strong></span>
+          </div>
+        </form>
+        <div class="success-msg" id="successMsg">
+          ✅ <span data-lang="bn">আপনার অ্যাপয়েন্টমেন্ট অনুরোধ পাঠানো হয়েছে! আমরা শীঘ্রই যোগাযোগ করব।</span>
+          <span data-lang="en">Your appointment request has been submitted! We will contact you shortly.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">
+        <span data-lang="bn">যোগাযোগ করুন</span>
+        <span data-lang="en">Contact Us</span>
+      </div>
+      <h2 class="section-title-bn">
+        <span data-lang="bn">আমাদের সাথে যোগাযোগ করুন</span>
+        <span data-lang="en">Get in Touch with Us</span>
+      </h2>
+      <div class="section-title-en">
+        <span data-lang="bn">আমরা সর্বদা আপনার সেবায় প্রস্তুত</span>
+        <span data-lang="en">We are always ready to serve you</span>
+      </div>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="ci-icon">📍</div>
+          <div>
+            <h4>
+              <span data-lang="bn">ঠিকানা</span>
+              <span data-lang="en">Address</span>
+            </h4>
+            <p>
+              <span data-lang="bn">রেয়াপাড়া গ্রামীণ হসপিটালের পশ্চিম পার্শে,<br>রেয়াপাড়া, নন্দীগ্রাম,<br>পূর্ব মেদিনীপুর – ৭২১৬৫০</span>
+              <span data-lang="en">West of Reapara Rural Hospital,<br>Reapara, Nandigram,<br>East Midnapore – 721650</span>
+            </p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">📞</div>
+          <div>
+            <h4>
+              <span data-lang="bn">ফোন নম্বর</span>
+              <span data-lang="en">Phone Numbers</span>
+            </h4>
+            <a href="tel:8389825114" class="phone">📱 8389825114</a>
+            <a href="tel:9775877356" class="phone">📱 9775877356</a>
+            <a href="tel:9732502430" class="phone">📱 9732502430</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">📧</div>
+          <div>
+            <h4>Email</h4>
+            <a href="mailto:tulipdiagnosticpolyclinic2022@gmail.com">tulipdiagnosticpolyclinic2022@gmail.com</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">⏰</div>
+          <div>
+            <h4>
+              <span data-lang="bn">খোলার সময়</span>
+              <span data-lang="en">Opening Hours</span>
+            </h4>
+            <p>
+              <span data-lang="bn">প্যাথলজি ও ইসিজি: ২৪ ঘণ্টা / ৭ দিন<br>ডাঃ সুবীর পাল: রবিবার বিকাল ৪-৫ টা থেকে<br>ডাঃ সৈকত ত্রিপাঠী: রবিবার সকাল ৮ টা থেকে</span>
+              <span data-lang="en">Pathology & ECG: 24×7<br>Dr. Subir Pal: Sunday from 4–5 PM<br>Dr. Saikat Tripathi: Sunday from 8 AM</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-wrap">
+        <iframe
+          src="https://maps.google.com/maps?q=22.042674,87.904209&z=17&output=embed"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Tulip Diagnostic Location">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">🌷 টিউলিপ ডায়াগনস্টিক ও পলিক্লিনিক</div>
+    <div class="footer-tagline">
+      <span data-lang="bn">সুস্বাস্থ্যের শুরু এখানে | Good Health Starts Here</span>
+      <span data-lang="en">Good Health Starts Here | সুস্বাস্থ্যের শুরু এখানে</span>
+    </div>
+    <div class="footer-links">
+      <a href="#home"><span data-lang="bn">হোম</span><span data-lang="en">Home</span></a>
+      <a href="#about"><span data-lang="bn">পরিচয়</span><span data-lang="en">About</span></a>
+      <a href="#doctors"><span data-lang="bn">ডাক্তার</span><span data-lang="en">Doctors</span></a>
+      <a href="#services"><span data-lang="bn">সেবা</span><span data-lang="en">Services</span></a>
+      <a href="#appointment"><span data-lang="bn">অ্যাপয়েন্টমেন্ট</span><span data-lang="en">Appointment</span></a>
+      <a href="#contact"><span data-lang="bn">যোগাযোগ</span><span data-lang="en">Contact</span></a>
+    </div>
+    <div class="footer-copy">
+      <span data-lang="bn">© ২০২৫ টিউলিপ ডায়াগনস্টিক ও পলিক্লিনিক | লাইসেন্স নং: ৩৪৫৩৬০০৩ | রেয়াপাড়া, নন্দীগ্রাম, পূর্ব মেদিনীপুর</span>
+      <span data-lang="en">© 2025 Tulip Diagnostic & Polyclinic | License No: 34536003 | Reapara, Nandigram, East Midnapore</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Language toggle
+  function toggleLang() {
+    document.body.classList.toggle('en-mode');
+  }
+
+  // Appointment form
+  async function submitForm(e) {
+    e.preventDefault();
+    const form = document.getElementById('apptForm');
+    const msg = document.getElementById('successMsg');
+    const btn = form.querySelector('.form-submit');
+
+    // Collect values
+    const name     = form.querySelector('[name="name"]').value.trim();
+    const age      = form.querySelector('[name="age"]').value.trim();
+    const phone    = form.querySelector('[name="phone"]').value.trim();
+    const dateVal  = form.querySelector('[name="date"]').value; // YYYY-MM-DD
+    const doctor   = form.querySelector('[name="doctor"]').value;
+    const service  = form.querySelector('[name="service"]').value;
+    const problem  = form.querySelector('[name="problem"]').value.trim();
+
+    // Parse date
+    const [yr, mo, dy] = dateVal ? dateVal.split('-') : ['','',''];
+
+    // Doctor label mapping
+    const doctorLabels = {
+      'dr_subir':   'ডাঃ সুবীর কুমার পাল,',
+      'dr_saikat':  'ডাঃ সৈকত ত্রিপাঠী,',
+      'pathology':  'Pathology Test Only',
+      'ecg':        'ECG Only'
+    };
+
+    // Service label mapping
+    const serviceLabels = {
+      'consultation': 'Doctor Consultation',
+      'blood':        'Blood Test,',
+      'urine':        'Urine Test',
+      'ecg':          'ECG',
+      'eeg':          'EEG',
+      'lipid':        'Lipid Profile',
+      'hba1c':        'HbA1c Test',
+      'thyroid':      'Thyroid Test',
+      'kidney':       'Kidney Function',
+      'fullbody':     'Full Body Checkup',
+      'other':        'Others'
+    };
+
+    // Build Google Form POST URL
+    const FORM_ID = '1FAIpQLSeX2QyfvyMqH-xj5XSWoA4CebdstpKnatwB2AilhM45rcIA3w';
+    const endpoint = `https://docs.google.com/forms/d/e/${FORM_ID}/formResponse`;
+
+    const params = new URLSearchParams();
+    params.append('entry.648370676',   name);
+    params.append('entry.31310367',    age);
+    params.append('entry.1889034971',  phone);
+    params.append('entry.110001088_year',  yr);
+    params.append('entry.110001088_month', mo ? String(parseInt(mo)) : '');
+    params.append('entry.110001088_day',   dy ? String(parseInt(dy)) : '');
+    params.append('entry.1328752880',  doctorLabels[doctor] || doctor);
+    params.append('entry.1509541818',  serviceLabels[service] || service);
+    params.append('entry.286115002',   problem);
+    params.append('fvv', '1');
+    params.append('pageHistory', '0');
+
+    // Disable button while submitting
+    btn.disabled = true;
+    btn.style.opacity = '0.7';
+
+    try {
+      // Use no-cors (Google Forms doesn't allow CORS, but the data still gets submitted)
+      await fetch(endpoint, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params.toString()
+      });
+    } catch(err) {
+      // no-cors fetch may throw — data is still submitted
+    }
+
+    // Show success regardless (no-cors gives opaque response)
+    form.style.display = 'none';
+    msg.style.display = 'block';
+  }
+
+  // Set min date for appointment to today
+  const dateInput = document.querySelector('input[name="date"]');
+  if (dateInput) {
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.min = today;
+  }
+
+  // Smooth active nav highlight
+  const sections = document.querySelectorAll('section[id], div[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 80) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.background = '';
+      if (a.getAttribute('href') === '#' + current) {
+        a.style.background = 'rgba(255,255,255,0.15)';
+      }
+    });
+  });
+</script>
+</body>
+</html>
