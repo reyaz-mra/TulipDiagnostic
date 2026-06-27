@@ -75,91 +75,187 @@
   }
   .lang-toggle:hover { background: var(--gold-light); }
 
-  /* ── HERO ── */
-  .hero {
-    background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 50%, #0A8A7A 100%);
-    color: white;
-    padding: 60px 20px 50px;
-    text-align: center;
-    position: relative; overflow: hidden;
+  /* ── SLIDER ── */
+  .slider-section { position: relative; overflow: hidden; background: #000; }
+  .slider-track {
+    display: flex;
+    transition: transform 0.7s cubic-bezier(0.77,0,0.175,1);
+    will-change: transform;
   }
-  .hero::before {
-    content: '';
-    position: absolute; top: -60px; right: -60px;
-    width: 280px; height: 280px;
-    background: radial-gradient(circle, rgba(201,162,39,0.18) 0%, transparent 70%);
-    border-radius: 50%;
+  .slide {
+    min-width: 100%; position: relative;
+    height: clamp(400px, 60vw, 540px);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; overflow: hidden;
   }
-  .hero::after {
-    content: '';
-    position: absolute; bottom: -40px; left: -40px;
-    width: 200px; height: 200px;
+  .slide-1 { background: linear-gradient(135deg, #063A3A 0%, #0A6E6E 55%, #0D8A6A 100%); }
+  .slide-2 { background: linear-gradient(135deg, #0B2545 0%, #1B4F8A 55%, #1565C0 100%); }
+  .slide-3 { background: linear-gradient(135deg, #3E1060 0%, #6A1B9A 55%, #8E24AA 100%); }
+  .slide-4 { background: linear-gradient(135deg, #0D3B1A 0%, #1A6B35 55%, #27AE60 100%); }
+  .slide-5 { background: linear-gradient(135deg, #7B2D00 0%, #C0392B 55%, #E74C3C 100%); }
+  .slide::before, .slide::after {
+    content: ''; position: absolute; border-radius: 50%; pointer-events: none;
+  }
+  .slide::before {
+    width: 380px; height: 380px; top: -100px; right: -80px;
     background: radial-gradient(circle, rgba(255,255,255,0.07) 0%, transparent 70%);
-    border-radius: 50%;
   }
-  .hero-badge {
+  .slide::after {
+    width: 260px; height: 260px; bottom: -80px; left: -60px;
+    background: radial-gradient(circle, rgba(201,162,39,0.13) 0%, transparent 70%);
+  }
+  .slide-content {
+    position: relative; z-index: 2;
+    padding: 30px 24px; max-width: 800px; margin: 0 auto;
+  }
+  .slide-badge {
     display: inline-block;
-    background: rgba(201,162,39,0.25);
-    border: 1px solid var(--gold);
-    color: var(--gold-light);
-    font-size: 11px; font-weight: 600;
-    padding: 4px 14px; border-radius: 20px;
-    letter-spacing: 1px; margin-bottom: 18px;
-    text-transform: uppercase;
+    background: rgba(201,162,39,0.22);
+    border: 1px solid rgba(201,162,39,0.6);
+    color: #F0C84A; font-size: 11px; font-weight: 700;
+    padding: 4px 16px; border-radius: 20px;
+    letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 14px;
   }
-  .hero-title-bn {
-    font-size: clamp(32px, 7vw, 58px);
-    font-weight: 700; line-height: 1.2;
-    margin-bottom: 6px;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  .slide-title {
+    font-size: clamp(26px, 5.5vw, 50px);
+    font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 8px;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.4);
   }
-  .hero-title-en {
-    font-size: clamp(14px, 3vw, 20px);
-    font-weight: 400; color: #b0e0e0;
-    letter-spacing: 1px; margin-bottom: 20px;
+  .slide-sub {
+    font-size: clamp(13px, 2.2vw, 17px);
+    color: rgba(255,255,255,0.75); margin-bottom: 16px; font-weight: 400;
   }
-  .hero-tagline {
-    font-size: 15px; color: var(--gold-light);
-    font-weight: 500; margin-bottom: 6px;
+  .slide-tags {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 22px;
   }
-  .hero-tagline-en { font-size: 13px; color: #a0d4d4; margin-bottom: 24px; }
-  .hero-license {
-    font-size: 12px; color: #8ccfcf;
-    margin-bottom: 28px;
+  .slide-tag {
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+    color: #fff; font-size: 12px; font-weight: 500; padding: 5px 14px; border-radius: 20px;
   }
-  .hero-phones {
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
-    margin-bottom: 28px;
-  }
-  .hero-phones a {
-    background: rgba(255,255,255,0.12);
-    color: white; text-decoration: none;
-    padding: 10px 20px; border-radius: 30px;
-    font-size: 15px; font-weight: 600;
-    border: 1px solid rgba(255,255,255,0.25);
-    transition: background 0.2s;
-    display: flex; align-items: center; gap: 6px;
-  }
-  .hero-phones a:hover { background: rgba(255,255,255,0.25); }
-  .hero-cta {
-    display: inline-block;
-    background: var(--gold);
-    color: var(--teal-dark);
-    text-decoration: none;
-    padding: 13px 32px; border-radius: 30px;
-    font-weight: 700; font-size: 15px;
-    box-shadow: 0 4px 16px rgba(201,162,39,0.4);
+  .slide-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+  .slide-btn-primary {
+    background: var(--gold); color: var(--teal-dark);
+    text-decoration: none; padding: 12px 28px; border-radius: 30px;
+    font-weight: 700; font-size: 14px;
+    box-shadow: 0 4px 16px rgba(201,162,39,0.45);
     transition: transform 0.2s, box-shadow 0.2s;
   }
-  .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,162,39,0.5); }
+  .slide-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,162,39,0.55); }
+  .slide-btn-secondary {
+    background: rgba(255,255,255,0.12); border: 1.5px solid rgba(255,255,255,0.35);
+    color: #fff; text-decoration: none; padding: 12px 24px; border-radius: 30px;
+    font-size: 14px; font-weight: 600; transition: background 0.2s;
+  }
+  .slide-btn-secondary:hover { background: rgba(255,255,255,0.22); }
+  .slide-doctors {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-bottom: 20px;
+  }
+  .slide-doc-card {
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 14px; padding: 14px 18px; text-align: left; min-width: 200px; max-width: 240px;
+  }
+  .slide-doc-card .doc-avatar { font-size: 26px; margin-bottom: 6px; }
+  .slide-doc-card h4 { color: #fff; font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+  .slide-doc-card .qual { color: #b0d8f8; font-size: 11px; margin-bottom: 6px; }
+  .slide-doc-card .chamber {
+    background: rgba(201,162,39,0.2); border-left: 3px solid var(--gold);
+    padding: 5px 8px; border-radius: 0 6px 6px 0;
+    font-size: 11px; color: #F0C84A; font-weight: 600;
+  }
+  /* Slide inner card — rounded glassy frame */
+  .slide-card {
+    background: rgba(255,255,255,0.09);
+    border: 1.5px solid rgba(255,255,255,0.18);
+    border-radius: 28px; backdrop-filter: blur(8px);
+    padding: 30px 34px; max-width: 880px; margin: 0 auto;
+    display: flex; align-items: center; gap: 30px;
+    flex-wrap: wrap; justify-content: center;
+  }
+  .slide-illus {
+    flex: 0 0 auto; width: clamp(90px,16vw,160px); height: clamp(90px,16vw,160px);
+    border-radius: 50%; background: rgba(255,255,255,0.13);
+    border: 2px solid rgba(255,255,255,0.22);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; flex-shrink: 0;
+  }
+  .slide-illus img { width: 78%; height: 78%; object-fit: contain; filter: brightness(0) invert(1) opacity(0.88); }
+  .slide-illus-emoji { font-size: clamp(44px,8vw,76px); }
+  .slide-text-col { flex: 1; min-width: 220px; text-align: left; }
+  @media(max-width:600px) {
+    .slide-card { padding: 18px 16px; border-radius: 18px; }
+    .slide-text-col { text-align: center; }
+    .slide-illus { width: 72px; height: 72px; }
+  }
+  .tip-list { list-style: none; margin: 10px 0 16px; }
+  .tip-list li {
+    display: flex; align-items: flex-start; gap: 9px;
+    color: rgba(255,255,255,0.88); font-size: 13px;
+    padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .tip-list li:last-child { border-bottom: none; }
+  .tip-icon { font-size: 15px; flex-shrink: 0; margin-top: 2px; }
+  .slider-arrow {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    z-index: 10; background: rgba(255,255,255,0.15);
+    border: 1.5px solid rgba(255,255,255,0.3); color: #fff; font-size: 20px;
+    width: 44px; height: 44px; border-radius: 50%;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s; backdrop-filter: blur(4px);
+  }
+  .slider-arrow:hover { background: rgba(255,255,255,0.28); }
+  .slider-arrow.prev { left: 14px; }
+  .slider-arrow.next { right: 14px; }
+  .slider-dots {
+    position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 8px; z-index: 10;
+  }
+  .slider-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(255,255,255,0.35); cursor: pointer;
+    transition: background 0.2s, transform 0.2s; border: none;
+  }
+  .slider-dot.active { background: var(--gold); transform: scale(1.35); }
+
+  /* ── QUICK CONTACT BAR ── */
+  .quick-contact {
+    background: var(--teal-dark);
+    display: flex; flex-wrap: wrap; justify-content: center;
+    border-bottom: 3px solid var(--gold);
+  }
+  .qc-btn {
+    display: flex; align-items: center; gap: 10px;
+    padding: 13px 22px; text-decoration: none; color: #fff;
+    font-size: 13px; font-weight: 600;
+    transition: background 0.2s;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    flex: 1; min-width: 130px; justify-content: center;
+  }
+  .qc-btn:last-child { border-right: none; }
+  .qc-btn:hover { background: rgba(255,255,255,0.1); }
+  .qc-icon {
+    width: 34px; height: 34px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 17px; flex-shrink: 0;
+  }
+  .qc-call .qc-icon   { background: #27AE60; }
+  .qc-wa .qc-icon     { background: #25D366; }
+  .qc-loc .qc-icon    { background: #E74C3C; }
+  .qc-email .qc-icon  { background: #2980B9; }
+  .qc-text small { display: block; font-size: 10px; font-weight: 400; color: #a0d4d4; }
 
   /* ── NOTICE STRIP ── */
   .notice-strip {
-    background: var(--gold);
-    color: var(--teal-dark);
-    text-align: center;
-    padding: 10px 20px;
-    font-size: 13px; font-weight: 600;
+    background: var(--gold); color: var(--teal-dark);
+    padding: 8px 20px; font-size: 13px; font-weight: 600;
+    overflow: hidden; white-space: nowrap;
+  }
+  .notice-marquee {
+    display: inline-block;
+    animation: marquee 26s linear infinite;
+  }
+  @keyframes marquee {
+    from { transform: translateX(80vw); }
+    to   { transform: translateX(-100%); }
   }
 
   /* ── SECTIONS ── */
@@ -451,6 +547,48 @@
     .doctor-body { padding: 16px; }
   }
 
+  /* ── ILLUSTRATIONS IN SECTIONS ── */
+  .illus-banner {
+    background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 100%);
+    padding: 48px 20px;
+  }
+  .illus-banner-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; gap: 40px;
+    flex-wrap: wrap; justify-content: center;
+  }
+  .illus-banner-svg {
+    flex: 0 0 auto; width: clamp(140px, 22vw, 220px);
+    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.3));
+  }
+  .illus-banner-text { flex: 1; min-width: 240px; color: white; }
+  .illus-banner-text h2 {
+    font-size: clamp(20px, 3.5vw, 30px); font-weight: 700;
+    margin-bottom: 10px; line-height: 1.3;
+  }
+  .illus-banner-text p { font-size: 14px; color: rgba(255,255,255,0.78); margin-bottom: 18px; }
+  .illus-stats {
+    display: flex; flex-wrap: wrap; gap: 14px;
+  }
+  .illus-stat {
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 12px; padding: 12px 18px; text-align: center; min-width: 90px;
+  }
+  .illus-stat .stat-num { font-size: 22px; font-weight: 800; color: var(--gold-light); line-height: 1; }
+  .illus-stat .stat-lbl { font-size: 11px; color: rgba(255,255,255,0.7); margin-top: 3px; }
+
+  /* Section illustration float */
+  .section-with-illus {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 30px; align-items: start;
+  }
+  .section-illus-float {
+    width: clamp(100px, 16vw, 180px);
+    opacity: 0.18; position: relative; top: 0;
+  }
+  @media(max-width:700px) { .section-illus-float { display: none; } .section-with-illus { grid-template-columns: 1fr; } }
+
   /* ── LANG SWITCH ── */
   [data-lang="en"] { display: none; }
   body.en-mode [data-lang="bn"] { display: none; }
@@ -495,49 +633,349 @@
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- SLIDER -->
 <section id="home" style="padding:0;">
-  <div class="hero">
-    <div class="hero-badge">
-      <span data-lang="bn">পশ্চিমবঙ্গ সরকার অনুমোদিত</span>
-      <span data-lang="en">Govt. of West Bengal Registered</span>
+  <div class="slider-section">
+    <div class="slider-track" id="sliderTrack">
+
+      <!-- SLIDE 1: Branding -->
+      <div class="slide slide-1">
+        <div class="slide-content">
+          <div class="slide-card">
+            <div class="slide-illus">
+              <img src="https://cdn-icons-png.flaticon.com/512/2376/2376100.png" alt="Medical illustration" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+              <span class="slide-illus-emoji" style="display:none">🏥</span>
+            </div>
+            <div class="slide-text-col">
+              <div class="slide-badge">
+                <span data-lang="bn">পশ্চিমবঙ্গ সরকার অনুমোদিত · লাইসেন্স নং ৩৪৫৩৬০০৩</span>
+                <span data-lang="en">Govt. WB Registered · License 34536003</span>
+              </div>
+              <div class="slide-title">
+                <span data-lang="bn">🌷 টিউলিপ ডায়াগনস্টিক<br>ও পলিক্লিনিক</span>
+                <span data-lang="en">🌷 Tulip Diagnostic<br>& Polyclinic</span>
+              </div>
+              <div class="slide-sub">
+                <span data-lang="bn">সুস্বাস্থ্যের শুরু এখানে — রেয়াপাড়া, নন্দীগ্রাম</span>
+                <span data-lang="en">Good Health Starts Here — Reapara, Nandigram</span>
+              </div>
+              <div class="slide-tags">
+                <span class="slide-tag"><span data-lang="bn">২৪×৭ প্যাথলজি</span><span data-lang="en">24×7 Pathology</span></span>
+                <span class="slide-tag"><span data-lang="bn">একই দিনে রিপোর্ট</span><span data-lang="en">Same-Day Reports</span></span>
+                <span class="slide-tag"><span data-lang="bn">বিশেষজ্ঞ ডাক্তার</span><span data-lang="en">Specialist Doctors</span></span>
+                <span class="slide-tag">ECG / EEG</span>
+              </div>
+              <div class="slide-btns">
+                <a href="#appointment" class="slide-btn-primary">
+                  <span data-lang="bn">📅 অ্যাপয়েন্টমেন্ট বুক করুন</span>
+                  <span data-lang="en">📅 Book Appointment</span>
+                </a>
+                <a href="#services" class="slide-btn-secondary">
+                  <span data-lang="bn">🔬 আমাদের সেবা</span>
+                  <span data-lang="en">🔬 Our Services</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 2: Doctors -->
+      <div class="slide slide-2">
+        <div class="slide-content">
+          <div class="slide-card">
+            <!-- Left: stethoscope SVG -->
+            <div class="slide-illus">
+              <svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:70%;height:70%;">
+                <circle cx="45" cy="45" r="42" fill="rgba(255,255,255,0.08)"/>
+                <path d="M22 18 Q22 44 42 52 Q58 59 63 74" stroke="white" stroke-width="7" fill="none" stroke-linecap="round"/>
+                <path d="M38 18 Q38 44 42 52" stroke="white" stroke-width="7" fill="none" stroke-linecap="round"/>
+                <circle cx="22" cy="17" r="9" fill="none" stroke="white" stroke-width="3"/>
+                <circle cx="22" cy="17" r="4" fill="white"/>
+                <circle cx="38" cy="17" r="9" fill="none" stroke="white" stroke-width="3"/>
+                <circle cx="38" cy="17" r="4" fill="white"/>
+                <circle cx="63" cy="76" r="11" fill="#C9A227"/>
+                <circle cx="63" cy="76" r="5" fill="white"/>
+              </svg>
+            </div>
+            <!-- Right: text + compact doctor rows -->
+            <div class="slide-text-col">
+              <div class="slide-badge">
+                <span data-lang="bn">অভিজ্ঞ বিশেষজ্ঞ চিকিৎসক দল</span>
+                <span data-lang="en">Experienced Specialist Medical Team</span>
+              </div>
+              <div class="slide-title" style="font-size:clamp(20px,3.8vw,34px);margin-bottom:6px;">
+                <span data-lang="bn">আমাদের বিশেষজ্ঞ ডাক্তারবৃন্দ</span>
+                <span data-lang="en">Our Specialist Doctors</span>
+              </div>
+              <!-- Compact doctor rows -->
+              <div style="display:flex;flex-direction:column;gap:8px;margin:10px 0 14px;">
+                <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:10px 14px;display:flex;align-items:center;gap:10px;">
+                  <span style="font-size:22px;">👨‍⚕️</span>
+                  <div>
+                    <div style="color:#fff;font-size:14px;font-weight:700;"><span data-lang="bn">ডাঃ সুবীর কুমার পাল</span><span data-lang="en">Dr. Subir Kumar Pal</span></div>
+                    <div style="color:#b0d8f8;font-size:11px;">MBBS, MD (Respiratory) · <span data-lang="bn">সুগার, হার্ট, থাইরয়েড</span><span data-lang="en">Diabetes, Heart, Thyroid</span></div>
+                    <div style="color:#F0C84A;font-size:11px;font-weight:600;">🗓 <span data-lang="bn">রবি বিকাল ৪-৫ টা</span><span data-lang="en">Sun 4–5 PM</span></div>
+                  </div>
+                </div>
+                <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:10px 14px;display:flex;align-items:center;gap:10px;">
+                  <span style="font-size:22px;">👩‍⚕️</span>
+                  <div>
+                    <div style="color:#fff;font-size:14px;font-weight:700;"><span data-lang="bn">ডাঃ সৈকত ত্রিপাঠী</span><span data-lang="en">Dr. Saikat Tripathi</span></div>
+                    <div style="color:#b0d8f8;font-size:11px;">MBBS, MD/MS (O&G) · <span data-lang="bn">প্রসূতি, স্ত্রীরোগ</span><span data-lang="en">Obstetrics, Gynaecology</span></div>
+                    <div style="color:#F0C84A;font-size:11px;font-weight:600;">🗓 <span data-lang="bn">রবি সকাল ৮ টা</span><span data-lang="en">Sun 8 AM</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="slide-btns">
+                <a href="#doctors" class="slide-btn-primary">
+                  <span data-lang="bn">👨‍⚕️ বিস্তারিত দেখুন</span>
+                  <span data-lang="en">👨‍⚕️ View Details</span>
+                </a>
+                <a href="#appointment" class="slide-btn-secondary">
+                  <span data-lang="bn">📅 অ্যাপয়েন্টমেন্ট</span>
+                  <span data-lang="en">📅 Appointment</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 3: Services -->
+      <div class="slide slide-3">
+        <div class="slide-content">
+          <div class="slide-card">
+            <div class="slide-illus">
+              <img src="https://cdn-icons-png.flaticon.com/512/2913/2913136.png" alt="Lab illustration" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+              <span class="slide-illus-emoji" style="display:none">🔬</span>
+            </div>
+            <div class="slide-text-col">
+              <div class="slide-badge">
+                <span data-lang="bn">আমাদের পরিষেবাসমূহ</span>
+                <span data-lang="en">Our Services</span>
+              </div>
+              <div class="slide-title" style="font-size:clamp(22px,4.5vw,40px);">
+                <span data-lang="bn">সব স্বাস্থ্যসেবা<br>এক ছাদের নিচে</span>
+                <span data-lang="en">All Health Services<br>Under One Roof</span>
+              </div>
+              <div class="slide-sub">
+                <span data-lang="bn">আধুনিক প্রযুক্তি, দ্রুত রিপোর্ট, সাশ্রয়ী মূল্য</span>
+                <span data-lang="en">Modern technology, fast reports, affordable prices</span>
+              </div>
+              <div class="slide-tags">
+                <span class="slide-tag">❤️ ECG / EEG / NCV</span>
+                <span class="slide-tag">🔬 <span data-lang="bn">রক্ত পরীক্ষা</span><span data-lang="en">Blood Tests</span></span>
+                <span class="slide-tag">🩸 HbA1c / Lipid</span>
+                <span class="slide-tag">🧬 <span data-lang="bn">হরমোন / থাইরয়েড</span><span data-lang="en">Hormone / Thyroid</span></span>
+                <span class="slide-tag">🏥 <span data-lang="bn">হোলবডি চেকআপ</span><span data-lang="en">Full Body Checkup</span></span>
+                <span class="slide-tag">⏰ <span data-lang="bn">২৪×৭ সেবা</span><span data-lang="en">24×7 Service</span></span>
+              </div>
+              <div class="slide-btns">
+                <a href="#services" class="slide-btn-primary">
+                  <span data-lang="bn">🔬 সব সেবা দেখুন</span>
+                  <span data-lang="en">🔬 View All Services</span>
+                </a>
+                <a href="tel:8389825114" class="slide-btn-secondary">📞 8389825114</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 4: Health Tips -->
+      <div class="slide slide-4">
+        <div class="slide-content">
+          <div class="slide-card">
+            <div class="slide-illus">
+              <img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png" alt="Health tips" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+              <span class="slide-illus-emoji" style="display:none">💚</span>
+            </div>
+            <div class="slide-text-col">
+              <div class="slide-badge">
+                <span data-lang="bn">স্বাস্থ্য পরামর্শ</span>
+                <span data-lang="en">Health Tips</span>
+              </div>
+              <div class="slide-title" style="font-size:clamp(22px,4.5vw,38px);">
+                <span data-lang="bn">সুস্থ থাকুন,<br>সুখী থাকুন</span>
+                <span data-lang="en">Stay Healthy,<br>Stay Happy</span>
+              </div>
+              <ul class="tip-list">
+                <li><span class="tip-icon">💧</span><span><span data-lang="bn">প্রতিদিন কমপক্ষে ৮ গ্লাস জল পান করুন</span><span data-lang="en">Drink at least 8 glasses of water daily</span></span></li>
+                <li><span class="tip-icon">🥗</span><span><span data-lang="bn">তাজা শাকসবজি ও ফল বেশি খান</span><span data-lang="en">Eat more fresh vegetables and fruits</span></span></li>
+                <li><span class="tip-icon">🚶</span><span><span data-lang="bn">প্রতিদিন ৩০ মিনিট হাঁটুন বা ব্যায়াম করুন</span><span data-lang="en">Walk or exercise for 30 minutes daily</span></span></li>
+                <li><span class="tip-icon">🩸</span><span><span data-lang="bn">বছরে একবার সম্পূর্ণ রক্ত পরীক্ষা করুন</span><span data-lang="en">Get a complete blood test at least once a year</span></span></li>
+                <li><span class="tip-icon">😴</span><span><span data-lang="bn">রাতে ৭-৮ ঘণ্টা ঘুমানো জরুরি</span><span data-lang="en">7–8 hours of sleep is essential every night</span></span></li>
+              </ul>
+              <div class="slide-btns">
+                <a href="#services" class="slide-btn-primary">
+                  <span data-lang="bn">🔬 স্বাস্থ্য পরীক্ষা করুন</span>
+                  <span data-lang="en">🔬 Get Health Tested</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 5: Appointment Reminder -->
+      <div class="slide slide-5">
+        <div class="slide-content">
+          <div class="slide-card">
+            <div class="slide-illus">
+              <img src="https://cdn-icons-png.flaticon.com/512/2037/2037457.png" alt="Appointment" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+              <span class="slide-illus-emoji" style="display:none">📅</span>
+            </div>
+            <div class="slide-text-col">
+              <div class="slide-badge">
+                <span data-lang="bn">অ্যাপয়েন্টমেন্ট রিমাইন্ডার</span>
+                <span data-lang="en">Appointment Reminder</span>
+              </div>
+              <div class="slide-title" style="font-size:clamp(22px,4.5vw,38px);">
+                <span data-lang="bn">আজই অ্যাপয়েন্টমেন্ট<br>বুক করুন</span>
+                <span data-lang="en">Book Your Appointment<br>Today</span>
+              </div>
+              <div class="slide-sub">
+                <span data-lang="bn">দেরি না করে এখনই ডাক্তারের সাথে কথা বলুন</span>
+                <span data-lang="en">Don't delay — speak to a doctor right now</span>
+              </div>
+              <ul class="tip-list">
+                <li><span class="tip-icon">🗓</span><span><span data-lang="bn">ডাঃ সুবীর পাল — প্রতি রবিবার বিকাল ৪-৫ টা</span><span data-lang="en">Dr. Subir Pal — Every Sunday 4–5 PM</span></span></li>
+                <li><span class="tip-icon">🗓</span><span><span data-lang="bn">ডাঃ সৈকত ত্রিপাঠী — প্রতি রবিবার সকাল ৮ টা</span><span data-lang="en">Dr. Saikat Tripathi — Every Sunday 8 AM</span></span></li>
+                <li><span class="tip-icon">📞</span><span>8389825114 / 9775877356 / 9732502430</span></li>
+                <li><span class="tip-icon">💬</span><span><span data-lang="bn">WhatsApp এও যোগাযোগ করতে পারবেন</span><span data-lang="en">You can also contact via WhatsApp</span></span></li>
+              </ul>
+              <div class="slide-btns">
+                <a href="#appointment" class="slide-btn-primary">
+                  <span data-lang="bn">📅 এখনই বুক করুন</span>
+                  <span data-lang="en">📅 Book Now</span>
+                </a>
+                <a href="https://wa.me/918389825114" target="_blank" class="slide-btn-secondary">💬 WhatsApp</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /slider-track -->
+
+    <!-- Arrows -->
+    <button class="slider-arrow prev" onclick="moveSlide(-1)" aria-label="Previous">&#8249;</button>
+    <button class="slider-arrow next" onclick="moveSlide(1)"  aria-label="Next">&#8250;</button>
+
+    <!-- Dots -->
+    <div class="slider-dots" id="sliderDots">
+      <button class="slider-dot active" onclick="goSlide(0)"></button>
+      <button class="slider-dot"        onclick="goSlide(1)"></button>
+      <button class="slider-dot"        onclick="goSlide(2)"></button>
+      <button class="slider-dot"        onclick="goSlide(3)"></button>
+      <button class="slider-dot"        onclick="goSlide(4)"></button>
     </div>
-    <div class="hero-title-bn">
-      <span data-lang="bn">🌷 টিউলিপ ডায়াগনস্টিক</span>
-      <span data-lang="en">🌷 Tulip Diagnostic</span>
-    </div>
-    <div class="hero-title-en">
-      <span data-lang="bn">এন্ড পলিক্লিনিক</span>
-      <span data-lang="en">& Polyclinic</span>
-    </div>
-    <div class="hero-tagline">
-      <span data-lang="bn">সুস্বাস্থ্যের শুরু এখানে</span>
-      <span data-lang="en">Good Health Starts Here</span>
-    </div>
-    <div class="hero-tagline-en">
-      <span data-lang="bn">লাইসেন্স নং: 34536003</span>
-      <span data-lang="en">License No: 34536003</span>
-    </div>
-    <div class="hero-license">
-      <span data-lang="bn">📍 রেয়াপাড়া গ্রামীণ হসপিটালের পশ্চিম পার্শে, রেয়াপাড়া, নন্দীগ্রাম, পূর্ব মেদিনীপুর – ৭২১৬৫০</span>
-      <span data-lang="en">📍 West of Reapara Rural Hospital, Reapara, Nandigram, East Midnapore – 721650</span>
-    </div>
-    <div class="hero-phones">
-      <a href="tel:9775877356">📞 9775877356</a>
-      <a href="tel:8389825114">📞 8389825114</a>
-      <a href="tel:9732502430">📞 9732502430</a>
-    </div>
-    <a href="#appointment" class="hero-cta">
-      <span data-lang="bn">📅 অ্যাপয়েন্টমেন্ট বুক করুন</span>
-      <span data-lang="en">📅 Book an Appointment</span>
-    </a>
   </div>
 </section>
 
-<!-- NOTICE -->
+<!-- QUICK CONTACT BAR -->
+<div class="quick-contact">
+  <a href="tel:8389825114" class="qc-btn qc-call">
+    <span class="qc-icon">📞</span>
+    <span class="qc-text">
+      8389825114
+      <small><span data-lang="bn">এখনই কল করুন</span><span data-lang="en">Call Now</span></small>
+    </span>
+  </a>
+  <a href="https://wa.me/918389825114?text=নমস্কার%2C%20আমি%20Tulip%20Diagnostic%20থেকে%20অ্যাপয়েন্টমেন্ট%20বুক%20করতে%20চাই।" target="_blank" class="qc-btn qc-wa">
+    <span class="qc-icon">💬</span>
+    <span class="qc-text">
+      WhatsApp
+      <small><span data-lang="bn">মেসেজ করুন</span><span data-lang="en">Message Us</span></small>
+    </span>
+  </a>
+  <a href="https://maps.google.com/?q=22.042674,87.904209" target="_blank" class="qc-btn qc-loc">
+    <span class="qc-icon">📍</span>
+    <span class="qc-text">
+      <span data-lang="bn">রেয়াপাড়া, নন্দীগ্রাম</span><span data-lang="en">Reapara, Nandigram</span>
+      <small><span data-lang="bn">দিকনির্দেশনা পান</span><span data-lang="en">Get Directions</span></small>
+    </span>
+  </a>
+  <a href="mailto:tulipdiagnosticpolyclinic2022@gmail.com" class="qc-btn qc-email">
+    <span class="qc-icon">✉️</span>
+    <span class="qc-text">
+      Email Us
+      <small>tulipdiagnosticpolyclinic2022</small>
+    </span>
+  </a>
+</div>
+
+<!-- NOTICE MARQUEE -->
 <div class="notice-strip">
-  <span data-lang="bn">⏰ ২৪×৭ প্যাথলজি ও ইসিজি পরিষেবা উপলব্ধ | একই দিনে রিপোর্ট প্রদান করা হয়</span>
-  <span data-lang="en">⏰ 24×7 Pathology & ECG services available | Same-day reports provided</span>
+  <span class="notice-marquee">
+    <span data-lang="bn">⏰ ২৪×৭ প্যাথলজি ও ইসিজি পরিষেবা উপলব্ধ &nbsp;|&nbsp; ✅ একই দিনে রিপোর্ট &nbsp;|&nbsp; 📞 8389825114 / 9775877356 / 9732502430 &nbsp;|&nbsp; 🌷 টিউলিপ ডায়াগনস্টিক ও পলিক্লিনিক, রেয়াপাড়া, নন্দীগ্রাম &nbsp;|&nbsp; 🗓 রবিবার বিশেষজ্ঞ ডাক্তার চেম্বার &nbsp;|&nbsp;</span>
+    <span data-lang="en">⏰ 24×7 Pathology & ECG Available &nbsp;|&nbsp; ✅ Same-Day Reports &nbsp;|&nbsp; 📞 8389825114 / 9775877356 / 9732502430 &nbsp;|&nbsp; 🌷 Tulip Diagnostic & Polyclinic, Reapara, Nandigram &nbsp;|&nbsp; 🗓 Specialist Doctors Every Sunday &nbsp;|&nbsp;</span>
+  </span>
+</div>
+
+<!-- ILLUSTRATED STATS BANNER -->
+<div class="illus-banner">
+  <div class="illus-banner-inner">
+    <!-- Doctor illustration SVG -->
+    <svg class="illus-banner-svg" viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Body -->
+      <rect x="60" y="100" width="80" height="90" rx="18" fill="white" opacity="0.92"/>
+      <!-- Coat -->
+      <path d="M60 130 L40 200 H80 L90 150 L110 150 L120 200 H160 L140 130 Z" fill="white" opacity="0.85"/>
+      <!-- Head -->
+      <circle cx="100" cy="72" r="32" fill="#FDDBB4"/>
+      <!-- Hair -->
+      <path d="M68 62 Q70 40 100 38 Q130 40 132 62 Q122 54 100 54 Q78 54 68 62Z" fill="#5C3317"/>
+      <!-- Stethoscope -->
+      <path d="M82 118 Q78 140 84 148 Q92 158 100 156 Q108 158 116 148 Q122 140 118 118" stroke="#0A6E6E" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      <circle cx="100" cy="160" r="8" fill="#0A6E6E"/>
+      <!-- Eyes -->
+      <circle cx="90" cy="70" r="3.5" fill="#3A2010"/>
+      <circle cx="110" cy="70" r="3.5" fill="#3A2010"/>
+      <!-- Smile -->
+      <path d="M88 82 Q100 92 112 82" stroke="#B06040" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <!-- Cross badge -->
+      <rect x="90" y="108" width="20" height="20" rx="5" fill="#E74C3C"/>
+      <rect x="98" y="111" width="4" height="14" rx="2" fill="white"/>
+      <rect x="93" y="116" width="14" height="4" rx="2" fill="white"/>
+      <!-- Clipboard -->
+      <rect x="130" y="120" width="30" height="38" rx="6" fill="white" opacity="0.9"/>
+      <rect x="140" y="114" width="10" height="10" rx="3" fill="#C9A227"/>
+      <line x1="135" y1="132" x2="155" y2="132" stroke="#B2D8D8" stroke-width="2"/>
+      <line x1="135" y1="138" x2="155" y2="138" stroke="#B2D8D8" stroke-width="2"/>
+      <line x1="135" y1="144" x2="148" y2="144" stroke="#B2D8D8" stroke-width="2"/>
+    </svg>
+
+    <div class="illus-banner-text">
+      <h2>
+        <span data-lang="bn">নন্দীগ্রামের বিশ্বস্ত স্বাস্থ্যসেবা কেন্দ্র</span>
+        <span data-lang="en">Nandigram's Trusted Healthcare Centre</span>
+      </h2>
+      <p>
+        <span data-lang="bn">আমরা প্রতিটি রোগীকে পরিবারের সদস্য মনে করি। সর্বোচ্চ যত্ন ও আধুনিক প্রযুক্তি দিয়ে আপনার স্বাস্থ্য রক্ষায় আমরা প্রতিশ্রুতিবদ্ধ।</span>
+        <span data-lang="en">We treat every patient like family. We are committed to protecting your health with the highest care and modern technology.</span>
+      </p>
+      <div class="illus-stats">
+        <div class="illus-stat">
+          <div class="stat-num">24×7</div>
+          <div class="stat-lbl"><span data-lang="bn">সেবা</span><span data-lang="en">Service</span></div>
+        </div>
+        <div class="illus-stat">
+          <div class="stat-num">2+</div>
+          <div class="stat-lbl"><span data-lang="bn">বিশেষজ্ঞ ডাক্তার</span><span data-lang="en">Specialist Docs</span></div>
+        </div>
+        <div class="illus-stat">
+          <div class="stat-num">10+</div>
+          <div class="stat-lbl"><span data-lang="bn">পরীক্ষার ধরন</span><span data-lang="en">Test Types</span></div>
+        </div>
+        <div class="illus-stat">
+          <div class="stat-num">Same<br><span style="font-size:14px">Day</span></div>
+          <div class="stat-lbl"><span data-lang="bn">রিপোর্ট</span><span data-lang="en">Reports</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ABOUT -->
@@ -657,6 +1095,17 @@
 <section id="doctors" class="section-alt">
   <div class="section-inner">
     <div class="section-header">
+      <!-- Stethoscope illustration -->
+      <svg style="width:clamp(56px,10vw,90px);margin-bottom:10px;opacity:0.7;" viewBox="0 0 90 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15 10 Q15 35 35 45 Q55 55 60 70" stroke="#0A6E6E" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <path d="M35 10 Q35 35 35 45" stroke="#0A6E6E" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <circle cx="25" cy="9" r="9" fill="#0A6E6E" opacity="0.15" stroke="#0A6E6E" stroke-width="2.5"/>
+        <circle cx="25" cy="9" r="4" fill="#0A6E6E"/>
+        <circle cx="35" cy="9" r="9" fill="#0A6E6E" opacity="0.15" stroke="#0A6E6E" stroke-width="2.5"/>
+        <circle cx="35" cy="9" r="4" fill="#0A6E6E"/>
+        <circle cx="60" cy="72" r="10" fill="#C9A227" opacity="0.9"/>
+        <circle cx="60" cy="72" r="5" fill="white"/>
+      </svg>
       <div class="section-eyebrow">
         <span data-lang="bn">আমাদের চিকিৎসক</span>
         <span data-lang="en">Our Doctors</span>
@@ -772,20 +1221,39 @@
 <!-- SERVICES -->
 <section id="services">
   <div class="section-inner">
-    <div class="section-header">
-      <div class="section-eyebrow">
-        <span data-lang="bn">আমাদের পরিষেবা</span>
-        <span data-lang="en">Our Services</span>
+    <!-- Lab illustration header -->
+    <div style="display:flex;align-items:center;gap:24px;margin-bottom:10px;flex-wrap:wrap;justify-content:center;">
+      <svg style="width:clamp(80px,14vw,130px);opacity:0.85;flex-shrink:0;" viewBox="0 0 130 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Flask body -->
+        <path d="M48 20 L48 70 L20 115 Q16 122 22 126 L108 126 Q114 122 110 115 L82 70 L82 20 Z" fill="#E8F6F6" stroke="#0A6E6E" stroke-width="3"/>
+        <!-- Flask neck -->
+        <rect x="44" y="16" width="42" height="8" rx="4" fill="#0A6E6E"/>
+        <!-- Liquid -->
+        <path d="M30 105 L48 75 L82 75 L100 105 Q90 118 65 118 Q40 118 30 105Z" fill="#0D8A8A" opacity="0.7"/>
+        <!-- Bubbles -->
+        <circle cx="55" cy="100" r="5" fill="white" opacity="0.5"/>
+        <circle cx="70" cy="90" r="3.5" fill="white" opacity="0.4"/>
+        <circle cx="80" cy="105" r="4" fill="white" opacity="0.45"/>
+        <!-- Sparkles -->
+        <circle cx="105" cy="30" r="4" fill="#C9A227"/>
+        <circle cx="20" cy="50" r="3" fill="#C9A227" opacity="0.6"/>
+        <circle cx="112" cy="60" r="2.5" fill="#0A6E6E" opacity="0.5"/>
+      </svg>
+      <div class="section-header" style="margin-bottom:0;text-align:left;">
+        <div class="section-eyebrow">
+          <span data-lang="bn">আমাদের পরিষেবা</span>
+          <span data-lang="en">Our Services</span>
+        </div>
+        <h2 class="section-title-bn">
+          <span data-lang="bn">সমস্ত স্বাস্থ্যসেবা এক জায়গায়</span>
+          <span data-lang="en">All Health Services Under One Roof</span>
+        </h2>
+        <div class="section-title-en">
+          <span data-lang="bn">আধুনিক প্রযুক্তি ও বিশেষজ্ঞ দলের মাধ্যমে সর্বোত্তম সেবা</span>
+          <span data-lang="en">Best care through modern technology and expert team</span>
+        </div>
+        <div class="section-divider" style="margin:14px 0 0;"></div>
       </div>
-      <h2 class="section-title-bn">
-        <span data-lang="bn">সমস্ত স্বাস্থ্যসেবা এক জায়গায়</span>
-        <span data-lang="en">All Health Services Under One Roof</span>
-      </h2>
-      <div class="section-title-en">
-        <span data-lang="bn">আধুনিক প্রযুক্তি ও বিশেষজ্ঞ দলের মাধ্যমে সর্বোত্তম সেবা</span>
-        <span data-lang="en">Best care through modern technology and expert team</span>
-      </div>
-      <div class="section-divider"></div>
     </div>
     <div class="services-grid">
       <div class="service-card">
@@ -1192,7 +1660,40 @@
 </footer>
 
 <script>
-  // Language toggle
+  // ── SLIDER ──
+  let currentSlide = 0;
+  const totalSlides = 5;
+  let autoTimer = null;
+
+  function updateSlider() {
+    document.getElementById('sliderTrack').style.transform = `translateX(-${currentSlide * 100}%)`;
+    document.querySelectorAll('.slider-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === currentSlide);
+    });
+  }
+  function moveSlide(dir) {
+    currentSlide = (currentSlide + dir + totalSlides) % totalSlides;
+    updateSlider(); resetAuto();
+  }
+  function goSlide(n) {
+    currentSlide = n; updateSlider(); resetAuto();
+  }
+  function resetAuto() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(() => moveSlide(1), 5000);
+  }
+  resetAuto();
+
+  // Touch/swipe support
+  let touchStartX = 0;
+  const track = document.getElementById('sliderTrack');
+  track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) moveSlide(diff > 0 ? 1 : -1);
+  });
+
+  // ── LANGUAGE ──
   function toggleLang() {
     document.body.classList.toggle('en-mode');
   }
