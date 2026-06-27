@@ -537,14 +537,134 @@
   .footer-copy { font-size: 11px; color: #5A8888; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px; margin-top: 8px; }
 
   /* ── RESPONSIVE ── */
-  @media (max-width: 640px) {
-    .nav-inner { padding: 8px 14px; }
-    .nav-links a { font-size: 12px; padding: 6px 8px; }
-    section { padding: 44px 14px; }
-    .appt-form { padding: 20px 16px; }
-    .appt-top { padding: 20px 16px; }
-    .doctor-card-header { padding: 20px 16px; }
-    .doctor-body { padding: 16px; }
+  @media (max-width: 768px) {
+    /* NAV */
+    .nav-inner { padding: 8px 12px; gap: 6px; }
+    .nav-brand-text .bn { font-size: 11px; }
+    .nav-links { gap: 2px; }
+    .nav-links a { font-size: 11px; padding: 5px 7px; }
+    .lang-toggle { font-size: 11px; padding: 6px 10px; }
+
+    /* SLIDER */
+    .slide { height: auto; min-height: 340px; padding: 16px 10px; align-items: flex-start; padding-top: 24px; }
+    .slide-content { padding: 0 6px; width: 100%; }
+    .slide-card {
+      flex-direction: column !important;
+      padding: 16px 14px;
+      border-radius: 18px;
+      gap: 12px;
+      align-items: center;
+      text-align: center;
+    }
+    .slide-illus { width: 64px; height: 64px; }
+    .slide-illus img { width: 72%; height: 72%; }
+    .slide-illus-emoji { font-size: 36px; }
+    .slide-text-col { text-align: center; min-width: unset; width: 100%; }
+    .slide-badge { font-size: 9px; padding: 3px 10px; margin-bottom: 8px; }
+    .slide-title { font-size: clamp(18px, 5vw, 26px) !important; margin-bottom: 5px; }
+    .slide-sub { font-size: 12px; margin-bottom: 10px; }
+    .slide-tags { gap: 5px; margin-bottom: 12px; }
+    .slide-tag { font-size: 10px; padding: 3px 9px; }
+    .slide-btns { gap: 8px; }
+    .slide-btn-primary, .slide-btn-secondary { padding: 9px 16px; font-size: 12px; }
+    .slider-arrow { width: 32px; height: 32px; font-size: 15px; }
+    .slider-arrow.prev { left: 6px; }
+    .slider-arrow.next { right: 6px; }
+
+    /* Slide 2 doctor rows */
+    .slide-card > .slide-text-col > div[style*="flex-direction:column"] > div { flex-direction: column; gap: 4px; }
+
+    /* QUICK CONTACT BAR */
+    .quick-contact { flex-wrap: wrap; }
+    .qc-btn { min-width: 50%; flex: 0 0 50%; padding: 10px 12px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 12px; }
+    .qc-btn:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.1); }
+    .qc-btn:nth-last-child(-n+2) { border-bottom: none; }
+    .qc-icon { width: 28px; height: 28px; font-size: 14px; }
+    .qc-text small { font-size: 9px; }
+
+    /* STATS BANNER */
+    .illus-banner { padding: 28px 14px; }
+    .illus-banner-inner { gap: 18px; }
+    .illus-banner-svg { width: 90px; }
+    .illus-banner-text h2 { font-size: 18px; }
+    .illus-banner-text p { font-size: 12px; }
+    .illus-stats { gap: 8px; }
+    .illus-stat { padding: 8px 12px; min-width: 70px; }
+    .illus-stat .stat-num { font-size: 17px; }
+    .illus-stat .stat-lbl { font-size: 10px; }
+
+    /* ABOUT CARDS */
+    .about-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .about-card { padding: 18px 14px; }
+    .about-icon { font-size: 28px; }
+    .about-card h3 { font-size: 13px; }
+    .about-card p { font-size: 11px; }
+
+    /* DOCTORS */
+    .doctors-grid { grid-template-columns: 1fr; gap: 18px; }
+    .doctor-card-header { padding: 18px 14px; gap: 12px; }
+    .doctor-avatar { width: 56px; height: 56px; font-size: 26px; }
+    .doctor-card-header h3 { font-size: 17px; }
+    .doctor-body { padding: 14px; }
+    .specialty-tag { font-size: 10px; padding: 2px 7px; }
+
+    /* SERVICES */
+    .services-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .service-card { padding: 14px 12px; gap: 10px; }
+    .service-icon { width: 38px; height: 38px; font-size: 20px; border-radius: 9px; }
+    .service-text h4 { font-size: 12px; }
+    .service-text p { font-size: 11px; }
+
+    /* APPOINTMENT */
+    .appt-top { padding: 18px 14px; flex-direction: column; gap: 10px; }
+    .appt-top h3 { font-size: 18px; }
+    .appt-top-note { font-size: 12px; max-width: 100%; }
+    .appt-form { padding: 16px 14px; }
+    .form-grid { grid-template-columns: 1fr; gap: 14px; }
+    .form-submit { padding: 12px 28px; font-size: 14px; width: 100%; }
+
+    /* CONTACT */
+    .contact-grid { grid-template-columns: 1fr; gap: 18px; }
+    .map-wrap { min-height: 240px; }
+    .map-wrap iframe { min-height: 240px; }
+
+    /* SECTIONS */
+    section { padding: 36px 14px; }
+    .section-title-bn { font-size: 20px !important; }
+    .section-title-en { font-size: 13px; }
+
+    /* FOOTER */
+    .footer-links { gap: 6px; }
+    .footer-links a { font-size: 11px; padding: 3px 9px; }
+  }
+
+  @media (max-width: 480px) {
+    /* NAV — hide some links on very small screens */
+    .nav-links a[href="#about"],
+    .nav-links a[href="#services"] { display: none; }
+
+    /* SLIDER tighter */
+    .slide { min-height: 300px; }
+    .slide-card { padding: 12px 10px; border-radius: 14px; gap: 8px; }
+    .slide-illus { width: 52px; height: 52px; }
+    .slide-title { font-size: 18px !important; }
+    .slide-tags { display: none; } /* hide tags on tiny screens to save space */
+
+    /* ABOUT — single column */
+    .about-grid { grid-template-columns: 1fr; }
+
+    /* SERVICES — single column */
+    .services-grid { grid-template-columns: 1fr; }
+
+    /* QUICK CONTACT — 2x2 grid already, fine */
+    .qc-text small { display: none; }
+
+    /* STATS */
+    .illus-stats { justify-content: center; }
+    .illus-banner-svg { display: none; }
+
+    .section-with-illus { grid-template-columns: 1fr; }
+    .section-illus-float { display: none; }
   }
 
   /* ── ILLUSTRATIONS IN SECTIONS ── */
